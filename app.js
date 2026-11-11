@@ -6,7 +6,11 @@
 const KNOWLEDGE_BASE = [
   {
     id: "o_que_e",
-    keywords: ["que e", "fase clara", "fotoquimica", "resumo", "conceito", "definicao", "etapa clara", "fotossintese"],
+    keywords: [
+      "o que e a fase clara", "o que e fase clara", "o que e fotossintese",
+      "o que e esse processo", "resumo da fase clara", "conceito de fotossintese",
+      "definicao", "etapa fotoquimica", "fase fotoquimica", "fase clara"
+    ],
     title: "1. O que é a Fase Clara?",
     tag: "CONCEITO FUNDAMENTAL",
     shortSpeech: "A Fase Clara é a primeira etapa da fotossíntese! Aqui nós transformamos a energia da luz solar em energia química na forma de ATP e NADPH!",
@@ -16,7 +20,11 @@ const KNOWLEDGE_BASE = [
   },
   {
     id: "onde_acontece",
-    keywords: ["onde", "local", "lugar", "ocorre", "acontece", "tilacoide", "cloroplasto", "grana", "lumen", "estroma", "membrana"],
+    keywords: [
+      "onde acontece", "onde ocorre", "local", "lugar", "tilacoide", "tilacoides",
+      "cloroplasto", "cloroplastos", "grana", "lumen", "estroma", "membrana tilacoidal",
+      "membrana do tilacoide"
+    ],
     title: "2. Onde o Processo Acontece?",
     tag: "LOCALIZAÇÃO CELULAR",
     shortSpeech: "Eu moro na membrana dos tilacoides, dentro dos cloroplastos! É aí que ficam meus fotossistemas e a ATP sintase!",
@@ -25,9 +33,32 @@ const KNOWLEDGE_BASE = [
     interpretation: "A membrana fosfolipídica do tilacoide é indispensável porque ela separa o interior (lúmen) do estroma, permitindo criar um gradiente de prótons (H⁺) que gira a enzima ATP sintase."
   },
   {
+    id: "etapas",
+    keywords: [
+      "etapas", "passo a passo", "esquema z", "fluxograma", "sequencia", "etapa",
+      "fotossistemas", "fotossistema 2", "fotossistema ii", "fotossistema 1", "fotossistema i",
+      "p680", "p700", "cadeia transportadora"
+    ],
+    title: "3. Principais Etapas e o Esquema Z",
+    tag: "ETAPAS BIOQUÍMICAS",
+    shortSpeech: "A Fase Clara acontece em 4 passos: Fotossistema II, Fotólise da Água, Transporte de Elétrons com Fotossistema I e a síntese de ATP!",
+    fullDescription: "O fluxo de elétrons na Fase Clara segue o clássico <strong>Esquema Z</strong> através da membrana do tilacoide:<br><br>" +
+      "<div class='steps-diagram'>" +
+      "  <div class='step-card'><strong>1. Excitação no Fotossistema II (P680):</strong> A luz atinge o complexo antena e excita a clorofila P680, liberando elétrons energizados.</div>" +
+      "  <div class='step-card'><strong>2. Fotólise da Água:</strong> O centro de manganês quebra a molécula de H₂O para repor os elétrons do FS II, liberando O₂ e prótons H⁺ no lúmen.</div>" +
+      "  <div class='step-card'><strong>3. Cadeia Transportadora & Fotossistema I (P700):</strong> Os elétrons passam por plastoquinona, citocromo b₆f e plastocianina, reexcitam-se no FS I (P700) e reduzem o NADP⁺ a NADPH via ferredoxina-NADP⁺ redutase.</div>" +
+      "  <div class='step-card'><strong>4. Fotofosforilação (ATP Sintase):</strong> O acúmulo de prótons H⁺ no lúmen gera força próton-motriz que gira o rotor da ATP sintase, gerando ATP no estroma.</div>" +
+      "</div>",
+    latex: "\\text{H}_2\\text{O} \\xrightarrow{\\text{FS II (P680)}} \\text{Cadeia Transportadora} \\xrightarrow{\\text{FS I (P700)}} \\text{NADPH} \\quad (+\\text{ATP Sintase} \\rightarrow \\text{ATP})",
+    interpretation: "O Esquema Z representa a elevação energética dos elétrons a partir da água impulsionada por dois fótons luminosos sucessivos."
+  },
+  {
     id: "moleculas",
-    keywords: ["moleculas", "entra", "sai", "reagentes", "produtos", "participam", "ingredientes", "transformadas", "substancias"],
-    title: "3. Quais Moléculas Participam? (Entram x Saem)",
+    keywords: [
+      "moleculas", "reagentes e produtos", "o que entra", "o que sai", "reagentes",
+      "produtos", "participam", "ingredientes", "transformadas", "substancias"
+    ],
+    title: "4. Quais Moléculas Participam? (Entram x Saem)",
     tag: "BALANÇO MOLECULAR",
     shortSpeech: "Entram água e luz, junto com ADP e NADP+. São transformados e saem gás oxigênio livre, além de ATP e NADPH cheios de energia!",
     fullDescription: "A dinâmica molecular da fase clara divide-se em:<br>" +
@@ -39,11 +70,14 @@ const KNOWLEDGE_BASE = [
   },
   {
     id: "equacoes",
-    keywords: ["equacao", "equacoes", "formula", "quimica", "reacao", "reacoes", "hill", "fotolise", "semi-reacao", "3 pontos"],
-    title: "4. As Principais Equações Químicas (Peso 3,0)",
-    tag: "EQUAÇÕES QUÍMICAS & INTERPRETAÇÃO",
-    shortSpeech: "Preste muita atenção nas equações! Elas mostram a Fotólise da Água, a redução do NADP+ e a síntese de ATP pela ATP sintase!",
-    fullDescription: "Para gabaritar o critério de maior pontuação do projeto (3,0 pontos), não basta decorar as equações: é preciso interpretá-las biologicamente:<br><br>" +
+    keywords: [
+      "equacao", "equacoes", "principais equacoes", "formula", "formulas",
+      "quimica", "reacao", "reacoes", "hill", "semi reacao", "estequiometria"
+    ],
+    title: "5. As Principais Equações Químicas Interpretadas",
+    tag: "EQUAÇÕES QUÍMICAS",
+    shortSpeech: "Veja as três equações químicas da Fase Clara: a Fotólise da Água, a redução do NADP+ e a síntese de ATP pela ATP sintase!",
+    fullDescription: "Para compreender profundamente a Fase Clara, veja as reações químicas e o que cada uma significa biologicamente:<br><br>" +
       "<strong>1) Fotólise da Água (Reação de Hill no Fotossistema II):</strong><br>" +
       "2H₂O → O₂ + 4H⁺ + 4e⁻<br><em>Interpretação:</em> A luz quebra 2 moléculas de água no lúmen do tilacoide. Os elétrons repõem a clorofila P680 oxidada, os prótons H⁺ aumentam a acidez do lúmen e o O₂ é liberado.<br><br>" +
       "<strong>2) Redução do NADP⁺ (no Fotossistema I):</strong><br>" +
@@ -55,18 +89,24 @@ const KNOWLEDGE_BASE = [
   },
   {
     id: "fotolise",
-    keywords: ["fotolise", "quebra da agua", "agua", "oxigenio", "h2o", "o2"],
+    keywords: [
+      "fotolise", "quebra da agua", "agua", "oxigenio", "h2o", "o2",
+      "reacao de hill", "manganes"
+    ],
     title: "Fotólise da Água (Reação de Hill)",
-    tag: "ETAPA DO FOTOSSISTEMA II",
+    tag: "FOTOSSISTEMA II",
     shortSpeech: "A luz quebra a molécula de água em prótons, elétrons e oxigênio! É daqui que vem o ar que todo o planeta respira!",
-    fullDescription: "No Fotossistema II (P680), o Complexo de Evolução de Oxigênio (centro de Manganês) catalisa a oxidação da água. A clorofila excitada perde seus elétrons e 'rouba' os elétrons da molécula de H₂O para se estabilizar.",
+    fullDescription: "No Fotossistema II (P680), o Complexo de Evolução de Oxigênio (centro com átomos de Manganês) catalisa a oxidação da água. A clorofila excitada perde seus elétrons e 'rouba' os elétrons da molécula de H₂O para se estabilizar.",
     latex: "2\\text{H}_2\\text{O} \\xrightarrow{\\text{Complexo de Manganês / Luz}} \\text{O}_2\\uparrow + 4\\text{H}^+ + 4e^-",
     interpretation: "A água funciona como a grande doadora primária de elétrons de toda a biosfera terrestre. Sem a água, a fotossíntese pararia imediatamente!"
   },
   {
     id: "energia",
-    keywords: ["energia", "atp", "nadph", "adp", "fotofosforilacao", "quimiosmose", "gradiente", "protons", "bateria"],
-    title: "5. O Papel da Energia Celular (ATP e NADPH)",
+    keywords: [
+      "energia", "atp", "nadph", "adp", "fotofosforilacao", "quimiosmose",
+      "gradiente", "protons", "bateria", "o que e atp", "o que e nadph"
+    ],
+    title: "6. O Papel da Energia Celular (ATP e NADPH)",
     tag: "BIOENERGÉTICA CELULAR",
     shortSpeech: "A Fase Clara funciona como uma usina solar que carrega duas baterias celulares: o ATP que é a energia imediata, e o NADPH que é o poder redutor!",
     fullDescription: "A energia dos fótons é inicialmente convertida em energia eletroquímica: a passagem de elétrons pela cadeia transportadora bombeia prótons H⁺ para dentro do lúmen do tilacoide. A alta concentração de H⁺ gera uma <strong>força próton-motriz</strong>. Ao passarem pela enzima <strong>ATP Sintase</strong>, essa pressão mecânica sintetiza ATP a partir de ADP + Pi (hipótese quimiosmótica de Peter Mitchell).",
@@ -75,8 +115,11 @@ const KNOWLEDGE_BASE = [
   },
   {
     id: "funcao_importancia",
-    keywords: ["funcao", "importancia", "por que", "para que serve", "objetivo", "celula vegetal", "vida"],
-    title: "6. Qual a Função e Importância desse Processo?",
+    keywords: [
+      "funcao", "importancia", "por que a celula realiza", "para que serve",
+      "objetivo", "celula vegetal", "vida", "importancia celular"
+    ],
+    title: "7. Qual a Função e Importância desse Processo?",
     tag: "FUNÇÃO BIOLÓGICA",
     shortSpeech: "A importância é gigantesca: sem a Fase Clara, a planta não produz alimento e todo o planeta fica sem oxigênio!",
     fullDescription: "1. <strong>Manutenção da Vida na Terra:</strong> Gera praticamente todo o oxigênio da atmosfera terrestre através da fotólise da água.<br>" +
@@ -87,22 +130,27 @@ const KNOWLEDGE_BASE = [
   },
   {
     id: "desafio",
-    keywords: ["interrompido", "parar", "desafio", "sem luz", "escuro", "morrer", "aconteceria", "interromper", "bloqueio", "pergunta desafio"],
-    title: "7. Pergunta-Desafio: E se a Fase Clara for Interrompida?",
-    tag: "PERGUNTA-DESAFIO OFICIAL (UNEX)",
-    shortSpeech: "Se eu parar a Fase Clara, não produzo ATP nem NADPH! O Ciclo de Calvin trava, a célula fica sem glicose e morre por acúmulo de radicais livres!",
-    fullDescription: "<strong>Resposta oficial fundamentada para a banca:</strong><br><br>" +
-      "Se a Fase Clara for interrompida (por exemplo, por escuridão contínua ou herbicidas como o DCMU/Diuron que bloqueiam o transporte de elétrons):<br>" +
+    keywords: [
+      "interrompido", "parar", "e se faltar luz", "sem luz", "escuro", "morrer",
+      "aconteceria", "interromper", "bloqueio", "se fosse interrompido", "faltar sol"
+    ],
+    title: "8. O que Acontece se a Fase Clara for Interrompida?",
+    tag: "IMPACTO METABÓLICO",
+    shortSpeech: "Se faltar luz ou a via for bloqueada, não produzo ATP nem NADPH! O Ciclo de Calvin trava, a célula fica sem glicose e morre por acúmulo de radicais livres!",
+    fullDescription: "Se a Fase Clara for interrompida (por exemplo, por escuridão contínua ou herbicidas como o DCMU/Diuron que bloqueiam o transporte de elétrons):<br><br>" +
       "1. <strong>Cessa a produção de ATP e NADPH:</strong> O Ciclo de Calvin no estroma para por falta de substrato energético e poder redutor.<br>" +
       "2. <strong>Colapso Metabólico da Fixação de Carbono:</strong> A planta perde a capacidade de sintetizar glicose e amido, esgotando suas reservas energéticas.<br>" +
       "3. <strong>Estresse Oxidativo e Morte Celular:</strong> A clorofila excitada sem rota de escoamento para os elétrons reage com o oxigênio gerando <em>Espécies Reativas de Oxigênio (EROs)</em>, que causam peroxidação lipídica das membranas tilacoidais e morte celular.",
-    latex: "\\text{Bloqueio de Elétrons} \\longrightarrow \\text{Zelo de EROs} \\ (\\text{O}_2^{\\bullet-}, \\ \\text{H}_2\\text{O}_2) \\longrightarrow \\text{Lise e Morte Celular}",
+    latex: "\\text{Bloqueio de Elétrons} \\longrightarrow \\text{Acúmulo de EROs} \\ (\\text{O}_2^{\\bullet-}, \\ \\text{H}_2\\text{O}_2) \\longrightarrow \\text{Lise e Morte Celular}",
     interpretation: "A interrupção afeta não apenas a síntese de açúcares, mas destrói fisicamente o cloroplasto por sobrecarga fototóxica."
   },
   {
     id: "curiosidades",
-    keywords: ["curiosidade", "curiosidades", "aplicacao", "cotidiano", "herbicida", "diuron", "paraquat", "dia a dia", "biotecnologia"],
-    title: "8. Curiosidades e Aplicações no Cotidiano",
+    keywords: [
+      "curiosidade", "curiosidades", "aplicacao", "cotidiano", "herbicida",
+      "diuron", "paraquat", "dia a dia", "biotecnologia"
+    ],
+    title: "9. Curiosidades e Aplicações no Cotidiano",
     tag: "APLICAÇÃO NO COTIDIANO",
     shortSpeech: "Você sabia que o oxigênio que você respira veio da água e não do gás carbônico? E sabia que herbicidas agrícolas atacam justamente a Fase Clara?",
     fullDescription: "• <strong>De onde vem o Oxigênio?</strong> Antigamente pensava-se que o O₂ vinha da quebra do gás carbônico (CO₂). Experimentos com isótopos de Oxigênio-18 comprovaram que 100% do O₂ atmosférico provém da quebra da água (H₂O) na Fase Clara!<br>" +
@@ -113,16 +161,19 @@ const KNOWLEDGE_BASE = [
   },
   {
     id: "fontes",
-    keywords: ["fontes", "referencias", "bibliografia", "livro", "lehninger", "artigos", "taiz", "pesquisa"],
-    title: "9. Fontes Científicas Confiáveis (Normas UNEX)",
+    keywords: [
+      "fontes", "referencias", "bibliografia", "livro", "lehninger",
+      "artigos", "taiz", "pesquisa", "literatura"
+    ],
+    title: "10. Fontes Científicas e Bibliografia",
     tag: "REFERÊNCIAS ACADÊMICAS",
     shortSpeech: "Minhas respostas foram baseadas nas maiores autoridades mundiais da Bioquímica e Fisiologia Vegetal!",
-    fullDescription: "Conforme exigido pelo regulamento do projeto, o conteúdo foi validado nas seguintes fontes acadêmicas:<br>" +
+    fullDescription: "O conteúdo científico deste agente virtual foi validado nas seguintes referências acadêmicas:<br><br>" +
       "1. <strong>NELSON, David L.; COX, Michael M.</strong> <em>Princípios de Bioquímica de Lehninger</em>. 7ª ed. Porto Alegre: Artmed, 2018 (Capítulo 19: Fotofosforilação).<br>" +
       "2. <strong>TAIZ, Lincoln; ZEIGER, Eduardo et al.</strong> <em>Fisiologia e Desenvolvimento Vegetal</em>. 6ª ed. Porto Alegre: Artmed, 2017 (Capítulo 7: Fotossíntese: As Reações Luminosas).<br>" +
       "3. <strong>CAMPBELL, Neil A. et al.</strong> <em>Biologia de Campbell</em>. 10ª ed. Porto Alegre: Artmed, 2015.",
-    latex: "\\text{Bioquímica de Lehninger (Cap. 19)} \\ + \\ \\text{Fisiologia Vegetal de Taiz & Zeiger (Cap. 7)}",
-    interpretation: "Todas as etapas, estequiometrias e dados bioenergéticos estão em estrita conformidade com a literatura universitária internacional."
+    latex: null,
+    interpretation: null
   }
 ];
 
@@ -130,14 +181,14 @@ const KNOWLEDGE_BASE = [
 const DEFAULT_FALLBACK = {
   title: "Tópicos da Fase Clara",
   tag: "EXPLORE COM A TILA",
-  shortSpeech: "Hummm, não entendi tudo! Mas você pode me perguntar sobre: as equações químicas, reagentes e produtos, fotólise da água, onde acontece, ou a Pergunta-Desafio!",
-  fullDescription: "Tente perguntar por palavras-chave como:<br>" +
+  shortSpeech: "Hummm, não entendi exatamente! Mas você pode me perguntar sobre: as etapas e Esquema Z, equações químicas, fotólise da água, onde acontece, ou o papel do ATP!",
+  fullDescription: "Tente perguntar por termos como:<br>" +
     "• <em>'onde acontece'</em><br>" +
+    "• <em>'quais são as etapas?'</em><br>" +
     "• <em>'principais equações químicas'</em><br>" +
     "• <em>'fotólise da água'</em><br>" +
-    "• <em>'reagentes e produtos'</em><br>" +
-    "• <em>'qual a função do ATP e NADPH?'</em><br>" +
-    "• <em>'pergunta desafio se for interrompido'</em>",
+    "• <em>'o que é ATP e NADPH?'</em><br>" +
+    "• <em>'o que acontece se faltar luz?'</em>",
   latex: "\\text{Fase Clara: } \\text{H}_2\\text{O} + \\text{Luz} + \\text{ADP} + \\text{NADP}^+ \\longrightarrow \\text{O}_2 + \\text{ATP} + \\text{NADPH}",
   interpretation: "Clique em um dos botões coloridos de perguntas ou utilize o microfone para falar comigo!"
 };
@@ -179,6 +230,7 @@ const dom = {
   cardTag: document.getElementById('card-tag'),
   cardTitle: document.getElementById('card-title'),
   cardDesc: document.getElementById('card-desc'),
+  cardEquationBox: document.getElementById('card-equation-box'),
   cardEquation: document.getElementById('card-equation'),
   cardInterpretation: document.getElementById('card-eq-interpretation'),
 
@@ -189,13 +241,8 @@ const dom = {
   voiceStatus: document.getElementById('voice-status'),
   chips: document.querySelectorAll('.chip'),
 
-  // Header & Modal
-  btnSound: document.getElementById('btn-sound-toggle'),
-  btnQr: document.getElementById('btn-show-qrcode'),
-  qrModal: document.getElementById('qr-modal'),
-  btnCloseModal: document.getElementById('btn-close-modal'),
-  currentUrlDisplay: document.getElementById('current-url-display'),
-  qrImage: document.getElementById('qr-image')
+  // Header
+  btnSound: document.getElementById('btn-sound-toggle')
 };
 
 // ==========================================
@@ -207,11 +254,13 @@ function normalizeText(text) {
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "") // remove acentos
     .replace(/[^a-z0-9\s]/g, " ")
+    .replace(/\s+/g, " ")
     .trim();
 }
 
 function findBestTopic(rawQuery) {
   const cleanQuery = normalizeText(rawQuery);
+  const wordsInQuery = cleanQuery.split(" ");
   let bestMatch = null;
   let maxScore = 0;
 
@@ -219,11 +268,22 @@ function findBestTopic(rawQuery) {
     let score = 0;
     for (const kw of topic.keywords) {
       const cleanKw = normalizeText(kw);
+      
+      // Match exato de frase
       if (cleanQuery.includes(cleanKw)) {
-        // Peso proporcional ao tamanho da palavra-chave
-        score += cleanKw.split(" ").length * 3;
+        const wordCount = cleanKw.split(" ").length;
+        score += wordCount * 5;
+      } else {
+        // Match de palavras individuais se for termo bioquímico forte
+        const kwWords = cleanKw.split(" ");
+        for (const w of kwWords) {
+          if (w.length > 3 && wordsInQuery.includes(w)) {
+            score += 2;
+          }
+        }
       }
     }
+
     if (score > maxScore) {
       maxScore = score;
       bestMatch = topic;
@@ -234,23 +294,38 @@ function findBestTopic(rawQuery) {
 }
 
 // ==========================================
-// SÍNTESE DE VOZ (TEXT-TO-SPEECH) COM BOCA ANIMADA
+// SÍNTESE DE VOZ COM NORMALIZADOR FONÉTICO
 // ==========================================
 let synth = window.speechSynthesis;
+let mouthTimeout = null;
+
+function phoneticFilter(text) {
+  return text
+    .replace(/<[^>]*>?/gm, '')
+    .replace(/H₂O|H2O/gi, 'água H dois Ó')
+    .replace(/O₂|O2/gi, 'gás oxigênio O dois')
+    .replace(/NADP\+/gi, 'N A D P mais')
+    .replace(/NADPH/gi, 'N A D P H')
+    .replace(/ATP/gi, 'A T P')
+    .replace(/ADP/gi, 'A D P')
+    .replace(/FS II|FS 2/gi, 'Fotossistema dois')
+    .replace(/FS I|FS 1/gi, 'Fotossistema um')
+    .replace(/P680/gi, 'P 680')
+    .replace(/P700/gi, 'P 700')
+    .replace(/[\\${}_^]/g, '');
+}
 
 function speak(text) {
   if (!state.soundEnabled || !synth) return;
 
-  // Cancela falas anteriores
   synth.cancel();
 
-  const cleanSpeech = text.replace(/<[^>]*>?/gm, '').replace(/[\\${}_]/g, '');
+  const cleanSpeech = phoneticFilter(text);
   const utterance = new SpeechSynthesisUtterance(cleanSpeech);
   utterance.lang = 'pt-BR';
-  utterance.rate = 1.05; // Levemente animado
-  utterance.pitch = 1.45; // Tom agudo e fofo de plantinha infantil/cartoon
+  utterance.rate = 1.05;
+  utterance.pitch = 1.4;
 
-  // Encontrar voz em português se disponível
   const voices = synth.getVoices();
   const ptVoice = voices.find(v => v.lang.includes('pt') || v.lang.includes('PT'));
   if (ptVoice) utterance.voice = ptVoice;
@@ -271,11 +346,21 @@ function speak(text) {
   };
 
   synth.speak(utterance);
+
+  // Timeout de segurança para a boca não travar falando se o navegador mobile falhar no evento onend
+  if (mouthTimeout) clearTimeout(mouthTimeout);
+  const estimatedDuration = (cleanSpeech.length / 10) * 1000 + 1500;
+  mouthTimeout = setTimeout(() => {
+    if (state.isTalking) {
+      state.isTalking = false;
+      stopMouthAnimation();
+    }
+  }, Math.min(estimatedDuration, 14000));
 }
 
 let mouthInterval = null;
 function startMouthAnimation() {
-  document.getElementById('plant-box').classList.add('is-talking');
+  dom.plantBox.classList.add('is-talking');
   if (mouthInterval) clearInterval(mouthInterval);
   mouthInterval = setInterval(() => {
     if (!state.isTalking) return;
@@ -286,7 +371,7 @@ function startMouthAnimation() {
 }
 
 function stopMouthAnimation() {
-  document.getElementById('plant-box').classList.remove('is-talking');
+  dom.plantBox.classList.remove('is-talking');
   if (mouthInterval) clearInterval(mouthInterval);
   dom.mouthOpen.style.display = 'none';
   dom.mouthSmile.style.display = 'block';
@@ -296,56 +381,81 @@ function stopMouthAnimation() {
 // ATUALIZAÇÃO DA INTERFACE & KATEX
 // ==========================================
 function renderMath(latexString) {
-  if (window.katex && dom.cardEquation) {
+  if (!dom.cardEquation) return;
+
+  if (!latexString) {
+    dom.cardEquation.innerHTML = "";
+    return;
+  }
+
+  if (window.katex) {
     try {
       katex.render(latexString, dom.cardEquation, {
         throwOnError: false,
         displayMode: true
       });
+      return;
     } catch (e) {
-      dom.cardEquation.innerText = latexString;
+      console.warn("KaTeX render error:", e);
     }
-  } else {
-    dom.cardEquation.innerText = latexString;
   }
+  dom.cardEquation.innerText = latexString;
 }
 
-function displayTopic(topic) {
-  // Atualiza balão de fala da Tila
-  dom.speechText.innerHTML = topic.shortSpeech;
+function displayTopic(topic, options = {}) {
+  if (!topic) topic = DEFAULT_FALLBACK;
+  const speech = options.customSpeech || topic.shortSpeech || "";
 
-  // Atualiza painel científico detalhado
-  dom.cardTag.innerText = topic.tag;
-  dom.cardTitle.innerText = topic.title;
-  dom.cardDesc.innerHTML = topic.fullDescription;
-  dom.cardInterpretation.innerHTML = `<strong>Interpretação Bioquímica:</strong> ${topic.interpretation}`;
-  renderMath(topic.latex);
+  // Atualiza balão da Tila
+  dom.speechText.innerHTML = speech;
 
-  // Faz a Tila falar
-  speak(topic.shortSpeech);
+  // Atualiza card científico
+  dom.cardTag.innerText = topic.tag || "FOTOSSÍNTESE";
+  dom.cardTitle.innerText = topic.title || "Fase Clara";
+  dom.cardDesc.innerHTML = topic.fullDescription || "";
 
-  // Micro animação de reação
-  dom.plantSvg.style.transform = 'scale(1.06)';
-  setTimeout(() => {
-    dom.plantSvg.style.transform = 'scale(1)';
-  }, 250);
+  // Se o tópico tiver fórmula química, exibe a caixa de equação; se não tiver (ex: fontes), oculta a caixa
+  if (topic.latex) {
+    if (dom.cardEquationBox) dom.cardEquationBox.style.display = "block";
+    renderMath(topic.latex);
+    if (topic.interpretation) {
+      dom.cardInterpretation.style.display = "block";
+      dom.cardInterpretation.innerHTML = `<strong>Interpretação Bioquímica:</strong> ${topic.interpretation}`;
+    } else {
+      dom.cardInterpretation.style.display = "none";
+      dom.cardInterpretation.innerHTML = "";
+    }
+  } else {
+    if (dom.cardEquationBox) dom.cardEquationBox.style.display = "none";
+  }
+
+  // Executa voz
+  speak(speech);
+
+  // Animação da plantinha (se não for suprimida por ações especiais)
+  if (!options.skipScaleAnimation) {
+    dom.plantSvg.style.transform = 'scale(1.05)';
+    setTimeout(() => {
+      dom.plantSvg.style.transform = 'scale(1)';
+    }, 250);
+  }
 }
 
 // ==========================================
 // SPAWN DE PARTÍCULAS INTERATIVAS
 // ==========================================
 function spawnParticle(emoji) {
+  if (!dom.particles) return;
   const p = document.createElement('div');
   p.className = 'particle-fx';
   p.innerText = emoji;
-  const rect = dom.plantBox.getBoundingClientRect();
-  p.style.left = `${Math.random() * 200 + 60}px`;
-  p.style.bottom = `${Math.random() * 80 + 100}px`;
-  dom.plantBox.appendChild(p);
+  p.style.left = `${Math.random() * 60 + 20}%`;
+  p.style.bottom = `${Math.random() * 40 + 20}%`;
+  dom.particles.appendChild(p);
 
   setTimeout(() => {
     p.remove();
-  }, 1800);
+  }, 1600);
 }
 
 // ==========================================
@@ -362,9 +472,9 @@ dom.btnSun.addEventListener('click', () => {
   for (let i = 0; i < 4; i++) setTimeout(() => spawnParticle('⚡'), i * 150);
 
   const topic = KNOWLEDGE_BASE.find(t => t.id === 'energia');
-  dom.speechText.innerHTML = "Oba, luz solar! Os fótons excitaram meus elétrons e ativaram a síntese de <strong>ATP</strong> e <strong>NADPH</strong>!";
-  speak("Oba, luz solar! Meus fotossistemas absorveram fótons e sintetizaram ATP e NADPH!");
-  displayTopic(topic);
+  displayTopic(topic, {
+    customSpeech: "Oba, luz solar! Os fótons excitaram meus elétrons e geraram ATP e NADPH!"
+  });
 
   setTimeout(() => {
     dom.sunGlow.style.opacity = '0.4';
@@ -379,39 +489,39 @@ dom.btnWater.addEventListener('click', () => {
   for (let i = 0; i < 4; i++) setTimeout(() => spawnParticle('🫧'), i * 120);
 
   const topic = KNOWLEDGE_BASE.find(t => t.id === 'fotolise');
-  dom.speechText.innerHTML = "Glup, glup! Água fresquinha! Estou realizando a <strong>Fotólise da Água</strong> e liberando oxigênio O₂!";
-  speak("Que delícia! Estou quebrando a água na fotólise e liberando oxigênio puro para você respirar!");
-  displayTopic(topic);
+  displayTopic(topic, {
+    customSpeech: "Glup, glup! Água fresquinha! Realizei a fotólise e liberei oxigênio puro para você respirar!"
+  });
 });
 
 dom.btnDark.addEventListener('click', () => {
-  // Simula a Pergunta-Desafio (Interrupção)
   dom.sunGlow.style.opacity = '0';
   document.querySelector('.stage-section').style.filter = 'brightness(0.65)';
-  dom.plantSvg.style.transform = 'rotate(-6deg) translateY(12px)';
+  dom.plantSvg.style.transform = 'rotate(-6deg) translateY(10px)';
 
   const topic = KNOWLEDGE_BASE.find(t => t.id === 'desafio');
-  dom.speechText.innerHTML = "Socorro! Ficou tudo escuro! Sem luz meus tilacoides não funcionam, o ATP acaba e a célula entra em colapso!";
-  speak("Socorro, apagaram a luz! Sem luz, a Fase Clara para, o Ciclo de Calvin trava e a célula vegetal morre!");
-  displayTopic(topic);
+  displayTopic(topic, {
+    customSpeech: "Socorro! Ficou tudo escuro! Sem luz a Fase Clara para, o ATP acaba e a célula entra em colapso!",
+    skipScaleAnimation: true
+  });
 
   setTimeout(() => {
     document.querySelector('.stage-section').style.filter = 'brightness(1)';
     dom.plantSvg.style.transform = 'none';
     dom.sunGlow.style.opacity = '0.4';
-  }, 4000);
+  }, 4500);
 });
 
 dom.btnTickle.addEventListener('click', () => {
   for (let i = 0; i < 3; i++) setTimeout(() => spawnParticle('✨'), i * 100);
-  dom.plantSvg.style.transform = 'scale(1.1) rotate(5deg)';
-  setTimeout(() => dom.plantSvg.style.transform = 'scale(1.1) rotate(-5deg)', 150);
+  dom.plantSvg.style.transform = 'scale(1.08) rotate(4deg)';
+  setTimeout(() => dom.plantSvg.style.transform = 'scale(1.08) rotate(-4deg)', 150);
   setTimeout(() => dom.plantSvg.style.transform = 'none', 300);
 
   const frases = [
     "Hahaha! Isso faz cócegas nas minhas membranas tilacoidais!",
     "Hihihi! Cuidado para não derrubar meus fotossistemas!",
-    "Cócegas! Sabia que eu amo clorofila 'a' e 'b'?"
+    "Cócegas! Sabia que eu amo clorofila A e B?"
   ];
   const f = frases[Math.floor(Math.random() * frases.length)];
   dom.speechText.innerText = f;
@@ -507,7 +617,7 @@ if (SpeechRecognition) {
 }
 
 // ==========================================
-// CONTROLE DE ÁUDIO & QR CODE MODAL
+// CONTROLE DE ÁUDIO
 // ==========================================
 dom.btnSound.addEventListener('click', () => {
   state.soundEnabled = !state.soundEnabled;
@@ -516,28 +626,6 @@ dom.btnSound.addEventListener('click', () => {
     synth.cancel();
     stopMouthAnimation();
   }
-});
-
-// Atualiza o QR Code com o endereço real de rede ou da página
-const localHostIp = "192.168.18.11:8000";
-const targetUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-  ? `http://${localHostIp}`
-  : window.location.href;
-
-dom.currentUrlDisplay.innerText = targetUrl;
-dom.qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=${encodeURIComponent(targetUrl)}`;
-
-
-dom.btnQr.addEventListener('click', () => {
-  dom.qrModal.style.display = 'flex';
-});
-
-dom.btnCloseModal.addEventListener('click', () => {
-  dom.qrModal.style.display = 'none';
-});
-
-dom.qrModal.addEventListener('click', (e) => {
-  if (e.target === dom.qrModal) dom.qrModal.style.display = 'none';
 });
 
 // Renderização inicial da equação geral da fase clara

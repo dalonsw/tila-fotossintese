@@ -17,13 +17,12 @@
     <!-- Top Bar -->
     <header class="app-header">
       <div class="brand">
-        <span class="badge-bio">GRUPO 5 • UNEX</span>
+        <span class="badge-bio">BIOLOGIA CELULAR • FOTOSSÍNTESE</span>
         <h1>🌱 Tila <span>o Agente Virtual</span></h1>
-        <p class="subtitle">Metabolismo em Ação: Fotossíntese — Fase Clara</p>
+        <p class="subtitle">Guia Interativo da Fotossíntese: Fase Clara e Bioenergética</p>
       </div>
       <div class="header-actions">
         <button id="btn-sound-toggle" class="icon-btn" title="Ativar/Desativar Voz da Tila">🔊</button>
-        <button id="btn-show-qrcode" class="pill-btn">📱 QR Code do Cartaz</button>
       </div>
     </header>
 
@@ -67,7 +66,7 @@
             <ellipse cx="160" cy="340" rx="65" ry="14" fill="#8d341b" />
             <polygon points="100,240 220,240 205,340 115,340" fill="url(#potGrad)" />
             <rect x="92" y="228" width="136" height="18" rx="8" fill="#e76f51" />
-            <text x="160" y="290" text-anchor="middle" fill="#fff" font-family="'Fredoka', sans-serif" font-size="14" font-weight="700" letter-spacing="1">TILÁCOIDE</text>
+            <text x="160" y="290" text-anchor="middle" fill="#fff" font-family="'Fredoka', sans-serif" font-size="14" font-weight="700" letter-spacing="1">TILACOIDE</text>
             <text x="160" y="310" text-anchor="middle" fill="#ffeaa7" font-family="'Nunito', sans-serif" font-size="10">Cloroplasto</text>
 
             <!-- Caule -->
@@ -134,7 +133,7 @@
           <button class="action-pill water-btn" id="btn-act-water" title="Fotólise da Água">
             <span class="icon">💧</span> <span>Regar (H₂O)</span>
           </button>
-          <button class="action-pill dark-btn" id="btn-act-dark" title="Simular Bloqueio da Fase Clara (Pergunta-Desafio)">
+          <button class="action-pill dark-btn" id="btn-act-dark" title="Simular Ausência de Luz">
             <span class="icon">🌑</span> <span>Apagar Luz</span>
           </button>
           <button class="action-pill tickle-btn" id="btn-act-tickle" title="Fazer carinho">
@@ -153,7 +152,7 @@
           </div>
           <div class="card-body">
             <div id="card-desc" class="card-desc">
-              Bem-vindo ao agente virtual do Grupo 5! Aqui você pode explorar cada detalhe bioquímico exigido no projeto: equações, reagentes, produtos e o balanço bioenergético.
+              Bem-vindo ao agente virtual da Tila! Aqui você pode explorar interativamente todo o metabolismo da Fase Clara: fotossistemas, equações químicas, fotólise da água e o papel da energia.
             </div>
             
             <div class="equation-box" id="card-equation-box">
@@ -166,17 +165,18 @@
           </div>
         </div>
 
-        <!-- Atalhos Rápidos (Perguntas Oficiais da Apresentação) -->
+        <!-- Atalhos Rápidos de Exploração -->
         <div class="quick-topics">
-          <span class="quick-label">Perguntas da Apresentação (5 min):</span>
+          <span class="quick-label">Pergunte à Tila sobre:</span>
           <div class="chips-container">
-            <button class="chip" data-query="o que e a fase clara">1. O que é?</button>
-            <button class="chip" data-query="onde acontece">2. Onde acontece?</button>
-            <button class="chip" data-query="moleculas reagentes e produtos">3. Reagentes e Produtos</button>
-            <button class="chip" data-query="principais equacoes quimicas">4. Equações (3,0 pts)</button>
-            <button class="chip" data-query="qual a funcao e importancia">5. Importância Celular</button>
-            <button class="chip" data-query="papel da energia atp nadph">6. Papel da Energia</button>
-            <button class="chip highlight-chip" data-query="pergunta desafio se fosse interrompido">⚠️ Pergunta-Desafio!</button>
+            <button class="chip" data-query="o que e a fase clara">🌱 O que é?</button>
+            <button class="chip" data-query="onde acontece">📍 Onde acontece?</button>
+            <button class="chip" data-query="etapas passo a passo esquema z">🔄 Etapas (Esquema Z)</button>
+            <button class="chip" data-query="moleculas reagentes e produtos">🧪 Reagentes e Produtos</button>
+            <button class="chip" data-query="principais equacoes quimicas">📐 Equações Químicas</button>
+            <button class="chip" data-query="qual a funcao e importancia">⭐ Importância Celular</button>
+            <button class="chip" data-query="papel da energia atp nadph">⚡ Papel da Energia</button>
+            <button class="chip highlight-chip" data-query="o que acontece se for interrompido">⚠️ E se faltar luz?</button>
             <button class="chip" data-query="curiosidades e aplicacao">💡 Curiosidades</button>
             <button class="chip" data-query="quais sao as fontes de pesquisa">📚 Fontes Científicas</button>
           </div>
@@ -190,7 +190,7 @@
           <input 
             type="text" 
             id="chat-input" 
-            placeholder="Pergunte à Tila... (ex: 'onde ocorre', 'mostre a equação da água', 'o que é ATP?')"
+            placeholder="Pergunte à Tila... (ex: 'o que é ATP?', 'mostre as etapas', 'onde ocorre?')"
             autocomplete="off"
           />
           <button id="btn-send" class="send-btn" title="Enviar Pergunta">
@@ -202,22 +202,6 @@
         </div>
       </section>
     </main>
-
-    <!-- Modal do QR Code do Cartaz -->
-    <div class="modal-overlay" id="qr-modal">
-      <div class="modal-card">
-        <button class="modal-close" id="btn-close-modal">✕</button>
-        <h3>📱 QR Code para o Mapa Metabólico</h3>
-        <p>Imprima ou projete este QR Code na cartolina/papel kraft do seu trabalho para a professora e colegas acessarem a <strong>Tila</strong> diretamente pelo smartphone!</p>
-        
-        <div class="qr-code-box">
-          <img id="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https://antigravity-tila-fotossintese.local" alt="QR Code da Tila">
-        </div>
-        <div class="qr-info">
-          <small>Endereço atual: <span id="current-url-display">http://localhost:3000</span></small>
-        </div>
-      </div>
-    </div>
   </div>
 
   <script src="app.js"></script>

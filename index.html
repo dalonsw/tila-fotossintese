@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tila - A Plantinha Falante da Fase Clara 🌱</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;700;800&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- KaTeX para renderizar fórmulas químicas elegantes -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Bar -->
+    <header class="app-header">
+      <div class="brand">
+        <span class="badge-bio">GRUPO 5 • UNEX</span>
+        <h1>🌱 Tila <span>o Agente Virtual</span></h1>
+        <p class="subtitle">Metabolismo em Ação: Fotossíntese — Fase Clara</p>
+      </div>
+      <div class="header-actions">
+        <button id="btn-sound-toggle" class="icon-btn" title="Ativar/Desativar Voz da Tila">🔊</button>
+        <button id="btn-show-qrcode" class="pill-btn">📱 QR Code do Cartaz</button>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-stage">
+      <!-- Left / Interactive Area: Tila & Stage -->
+      <section class="stage-section">
+        <!-- Floating Energy Badges -->
+        <div class="floating-stats">
+          <div class="stat-pill" id="stat-atp">⚡ ATP: <span id="val-atp">0</span></div>
+          <div class="stat-pill" id="stat-nadph">🔋 NADPH: <span id="val-nadph">0</span></div>
+          <div class="stat-pill" id="stat-o2">🫧 O₂: <span id="val-o2">0</span></div>
+        </div>
+
+        <!-- Tila Container (Animated Plant SVG) -->
+        <div class="character-wrapper" id="plant-box" title="Clique em mim para me fazer cócegas!">
+          <div class="sun-glow" id="sun-glow"></div>
+          <div class="speech-bubble" id="speech-bubble">
+            <div class="bubble-tail"></div>
+            <p id="tila-speech-text">Olá! Eu sou a <strong>Tila</strong>! Sou sua amiga tilacoide. Pergunte-me qualquer coisa sobre a <strong>Fase Clara da Fotossíntese</strong> ou clique nas minhas ações!</p>
+          </div>
+
+          <!-- SVG da Plantinha Estilo Talking Tom -->
+          <svg class="plant-svg" viewBox="0 0 320 380" id="plant-svg">
+            <defs>
+              <linearGradient id="leafGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#72e276"/>
+                <stop offset="100%" stop-color="#2ca649"/>
+              </linearGradient>
+              <linearGradient id="potGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#e76f51"/>
+                <stop offset="100%" stop-color="#b84627"/>
+              </linearGradient>
+              <radialGradient id="sunGlowGrad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ffe66d" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#ffe66d" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+
+            <!-- Vaso de Planta -->
+            <ellipse cx="160" cy="340" rx="65" ry="14" fill="#8d341b" />
+            <polygon points="100,240 220,240 205,340 115,340" fill="url(#potGrad)" />
+            <rect x="92" y="228" width="136" height="18" rx="8" fill="#e76f51" />
+            <text x="160" y="290" text-anchor="middle" fill="#fff" font-family="'Fredoka', sans-serif" font-size="14" font-weight="700" letter-spacing="1">TILÁCOIDE</text>
+            <text x="160" y="310" text-anchor="middle" fill="#ffeaa7" font-family="'Nunito', sans-serif" font-size="10">Cloroplasto</text>
+
+            <!-- Caule -->
+            <path id="stem" d="M 160 230 Q 160 170 160 130" stroke="#48b85c" stroke-width="16" stroke-linecap="round" fill="none" />
+
+            <!-- Folha Esquerda -->
+            <g id="leaf-left" class="plant-leaf">
+              <path d="M 155 180 C 100 170 60 130 70 100 C 100 105 130 140 155 170" fill="url(#leafGrad)" />
+              <path d="M 155 175 Q 110 135 75 105" stroke="#1d7a33" stroke-width="2" fill="none" />
+            </g>
+
+            <!-- Folha Direita -->
+            <g id="leaf-right" class="plant-leaf">
+              <path d="M 165 180 C 220 170 260 130 250 100 C 220 105 190 140 165 170" fill="url(#leafGrad)" />
+              <path d="M 165 175 Q 210 135 245 105" stroke="#1d7a33" stroke-width="2" fill="none" />
+            </g>
+
+            <!-- Cabeça / Flor Central da Tila -->
+            <g id="head" class="plant-head">
+              <!-- Pétalas verdes decorativas como membrana tilacoidal -->
+              <circle cx="160" cy="115" r="54" fill="#58cb67" />
+              <circle cx="160" cy="115" r="48" fill="#69db7c" />
+
+              <!-- Bochechas rosadas -->
+              <ellipse cx="132" cy="126" rx="9" ry="5" fill="#ff8787" opacity="0.6"/>
+              <ellipse cx="188" cy="126" rx="9" ry="5" fill="#ff8787" opacity="0.6"/>
+
+              <!-- Olhos -->
+              <g id="eyes">
+                <!-- Esquerdo -->
+                <circle id="eye-left-white" cx="138" cy="108" r="11" fill="#ffffff" />
+                <circle id="eye-left-pupil" cx="140" cy="108" r="6" fill="#1e272e" />
+                <circle cx="142" cy="105" r="2.5" fill="#ffffff" />
+
+                <!-- Direito -->
+                <circle id="eye-right-white" cx="182" cy="108" r="11" fill="#ffffff" />
+                <circle id="eye-right-pupil" cx="184" cy="108" r="6" fill="#1e272e" />
+                <circle cx="186" cy="105" r="2.5" fill="#ffffff" />
+              </g>
+
+              <!-- Boca Animada (talking) -->
+              <g id="mouth-group">
+                <!-- Boca fechada / sorriso padrao -->
+                <path id="mouth-smile" d="M 148 128 Q 160 138 172 128" stroke="#1e272e" stroke-width="3.5" stroke-linecap="round" fill="none" />
+                <!-- Boca aberta falando (controlada via CSS/JS) -->
+                <ellipse id="mouth-open" cx="160" cy="132" rx="10" ry="7" fill="#c92a2a" style="display:none;" />
+              </g>
+
+              <!-- Florzinha no topo -->
+              <circle cx="160" cy="62" r="10" fill="#fcc419" />
+              <circle cx="160" cy="62" r="4" fill="#e67700" />
+            </g>
+          </svg>
+
+          <!-- Partículas e Efeitos de Água / Fótons -->
+          <div class="particles-overlay" id="particles-overlay"></div>
+        </div>
+
+        <!-- Botões de Ações Estilo Talking Tom -->
+        <div class="action-buttons-bar">
+          <button class="action-pill sun-btn" id="btn-act-sun" title="Estimular com Fótons de Luz">
+            <span class="icon">☀️</span> <span>Dar Luz Solar</span>
+          </button>
+          <button class="action-pill water-btn" id="btn-act-water" title="Fotólise da Água">
+            <span class="icon">💧</span> <span>Regar (H₂O)</span>
+          </button>
+          <button class="action-pill dark-btn" id="btn-act-dark" title="Simular Bloqueio da Fase Clara (Pergunta-Desafio)">
+            <span class="icon">🌑</span> <span>Apagar Luz</span>
+          </button>
+          <button class="action-pill tickle-btn" id="btn-act-tickle" title="Fazer carinho">
+            <span class="icon">✨</span> <span>Fazer Cócegas</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Right Area: Painel de Informação Metabólica e Chat Interativo -->
+      <section class="panel-section">
+        <!-- Card Científico Detalhado (Atualizado pela Tila) -->
+        <div class="info-card" id="info-card">
+          <div class="card-header">
+            <span class="card-tag" id="card-tag">PANORAMA GERAL</span>
+            <h2 id="card-title">Fase Clara (Fotoquímica)</h2>
+          </div>
+          <div class="card-body">
+            <div id="card-desc" class="card-desc">
+              Bem-vindo ao agente virtual do Grupo 5! Aqui você pode explorar cada detalhe bioquímico exigido no projeto: equações, reagentes, produtos e o balanço bioenergético.
+            </div>
+            
+            <div class="equation-box" id="card-equation-box">
+              <div class="eq-header">Equação Química em Destaque:</div>
+              <div class="eq-math" id="card-equation"></div>
+              <div class="eq-interpretation" id="card-eq-interpretation">
+                <em>Selecione um tópico ou pergunte à Tila para visualizar e interpretar as reações químicas da membrana tilacoidal.</em>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Atalhos Rápidos (Perguntas Oficiais da Apresentação) -->
+        <div class="quick-topics">
+          <span class="quick-label">Perguntas da Apresentação (5 min):</span>
+          <div class="chips-container">
+            <button class="chip" data-query="o que e a fase clara">1. O que é?</button>
+            <button class="chip" data-query="onde acontece">2. Onde acontece?</button>
+            <button class="chip" data-query="moleculas reagentes e produtos">3. Reagentes e Produtos</button>
+            <button class="chip" data-query="principais equacoes quimicas">4. Equações (3,0 pts)</button>
+            <button class="chip" data-query="qual a funcao e importancia">5. Importância Celular</button>
+            <button class="chip" data-query="papel da energia atp nadph">6. Papel da Energia</button>
+            <button class="chip highlight-chip" data-query="pergunta desafio se fosse interrompido">⚠️ Pergunta-Desafio!</button>
+            <button class="chip" data-query="curiosidades e aplicacao">💡 Curiosidades</button>
+            <button class="chip" data-query="quais sao as fontes de pesquisa">📚 Fontes Científicas</button>
+          </div>
+        </div>
+
+        <!-- Chat Input & Reconhecimento de Voz -->
+        <div class="chat-input-wrapper">
+          <button id="btn-voice-input" class="mic-btn" title="Falar com a Tila pelo Microfone">
+            <span class="mic-icon">🎤</span>
+          </button>
+          <input 
+            type="text" 
+            id="chat-input" 
+            placeholder="Pergunte à Tila... (ex: 'onde ocorre', 'mostre a equação da água', 'o que é ATP?')"
+            autocomplete="off"
+          />
+          <button id="btn-send" class="send-btn" title="Enviar Pergunta">
+            <span>Enviar</span>
+          </button>
+        </div>
+        <div class="voice-status" id="voice-status" style="display: none;">
+          Ouvindo sua voz... Fale agora! 🎙️
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal do QR Code do Cartaz -->
+    <div class="modal-overlay" id="qr-modal">
+      <div class="modal-card">
+        <button class="modal-close" id="btn-close-modal">✕</button>
+        <h3>📱 QR Code para o Mapa Metabólico</h3>
+        <p>Imprima ou projete este QR Code na cartolina/papel kraft do seu trabalho para a professora e colegas acessarem a <strong>Tila</strong> diretamente pelo smartphone!</p>
+        
+        <div class="qr-code-box">
+          <img id="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https://antigravity-tila-fotossintese.local" alt="QR Code da Tila">
+        </div>
+        <div class="qr-info">
+          <small>Endereço atual: <span id="current-url-display">http://localhost:3000</span></small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
